@@ -34,8 +34,17 @@ This skill is educational. Do not present content as diagnosis, prescription, or
    - Stanford lecture / 斯坦福大学演讲 questions: `references/stanford.md`; this module currently has text distillation only, with no screenshot evidence because the visual model quota was exhausted during ingestion.
    - Tianji / 天纪 / 易经 / 阳宅 / 紫微斗数 questions: `references/tianji.md`; use `references/tianji-screenshot-evidence.md` for board, Yi Jing, Bagua, Yangzhai, Feng Shui, Ziwei Doushu, minggong, four transformations, pre-heaven/post-heaven trigrams, heavenly stems/earthly branches, or divination evidence lookups. Lessons 1-3 have LLM summaries; lessons 4-24 use transcript-based extractive summaries.
    - Huangdi Neijing / 黄帝内经 questions: `references/huangdi.md`; use `references/huangdi-screenshot-evidence.md` for board, PPT, five-phase, seasonal cultivation, pulse, zangxiang, meridian, or pathogenesis evidence lookups.
+   - Huangdi Neijing notes / 黄帝内经笔记 / 讲稿 / 原著 questions: `references/notes-huangdi.md`; use after `references/huangdi.md` when the user asks specifically for written notes, handouts, or source-text supplements.
    - Shennong Bencao / 神农本草 questions: `references/bencao.md`; use `references/bencao-screenshot-evidence.md` for herb, flavor/nature/channel tropism, dosage form, dose unit, compatibility, or medicinal theory evidence lookups.
+   - Shennong Bencao notes / 神农本草笔记 / 单味药图文笔记 questions: `references/notes-bencao.md`; use after `references/bencao.md` for written note or herb-note supplement lookups.
    - Acupuncture / 针灸 questions: `references/acupuncture.md`; use `references/acupuncture-screenshot-evidence.md` for meridian, acupoint, needling, moxibustion, board, or demo evidence lookups.
+   - Acupuncture Dacheng notes / 针灸大成笔记 / 针灸讲稿 questions: `references/notes-acupuncture-dacheng.md`; use after `references/acupuncture.md` for written note or handout supplement lookups.
+   - Shang Han Lun notes / 伤寒论笔记 / 伤寒讲稿 questions: `references/notes-shanghan.md`; use after `references/shanghanlun.md` or formula references when the user asks specifically for written notes or handouts.
+   - Jingui notes / 金匮要略笔记 / 金匮讲稿 questions: `references/notes-jingui.md`; use after `references/jingui.md` when the user asks specifically for written notes or handouts.
+   - Hantang TCM / 汉唐中医 / 汉唐文章 / 汉唐处方 / 事实评论 questions: `references/hantang.md`; use for Hantang article and formula-commentary archive lookups, keeping course-video references as primary when they overlap.
+   - Diagnostic logs / 诊疗日志 / 病案记录 / 人纪班案例 questions: `references/diagnostic-logs.md`; use for case-log and follow-up-note lookups, with a strong educational-only safety frame.
+   - Ebooks / 电子书合集 / 原著 / 秘方手法 / 大合集 questions: `references/ebooks.md`; use as a broad inventory and extracted-text supplement, not as the primary authority over course references.
+   - Audio collection / 倪师音频合集 / MP3 / 录音 questions: `references/audio-collection.md`; use to map local audio files to already-distilled course modules.
    - Course overview or older all-in-one lookup: `references/shanghanlun.md`.
    - Board/PPT/source evidence: prefer `python scripts/search_screenshots.py <terms...>` for ranked results; use `rg` on `references/screenshot-evidence.md` only for quick manual lookup.
 3. Answer in the structure that matches the task:

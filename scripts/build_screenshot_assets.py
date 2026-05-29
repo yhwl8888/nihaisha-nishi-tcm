@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-import re
 
 from PIL import Image
 
@@ -18,6 +17,7 @@ MODULES = {
     "jingui-screenshot-evidence.md": "jingui",
     "zhongjing-xinfa-screenshot-evidence.md": "zhongjing-xinfa",
     "clinical-cases-screenshot-evidence.md": "clinical-cases",
+    "bagang-screenshot-evidence.md": "bagang",
     "fuyang-screenshot-evidence.md": "fuyang",
     "yijinjing-screenshot-evidence.md": "yijinjing",
     "huangdi-screenshot-evidence.md": "huangdi",
@@ -25,11 +25,6 @@ MODULES = {
     "acupuncture-screenshot-evidence.md": "acupuncture",
     "tianji-screenshot-evidence.md": "tianji",
 }
-
-SKIP_IMAGE_MODULES = {
-    "bagang-screenshot-evidence.md",
-}
-
 
 def entry_lines(text: str) -> list[str]:
     return text.splitlines()
@@ -56,10 +51,10 @@ def build_module(evidence: Path, module: str) -> tuple[int, int]:
 
         src_text = line.split("截图路径：", 1)[1].strip()
         src = Path(src_text)
+        image_index += 1
         if not src.is_absolute():
             output.append(line)
             continue
-        image_index += 1
         dst_rel = Path("assets") / "screenshots" / module / f"{image_index:04d}.webp"
         dst = ROOT / dst_rel
         if not src.exists():
@@ -86,12 +81,6 @@ def main() -> int:
         total_seen += seen
         total_written += written
         print(f"{evidence_name}: {written}/{seen}")
-
-    for evidence_name in SKIP_IMAGE_MODULES:
-        evidence = REFERENCES / evidence_name
-        if evidence.exists():
-            count = len(re.findall(r"^- `", evidence.read_text(encoding="utf-8"), re.M))
-            print(f"{evidence_name}: skipped image upload ({count} representative frames)")
 
     print(f"compressed assets: {total_written}/{total_seen}")
     return 0
