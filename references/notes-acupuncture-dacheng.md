@@ -82,3 +82,7 @@
 
 - `人纪-针灸篇.pdf`：no_text, 49.8MB
 - `针灸大成笔记 (彩版70页).pdf`：no_text, 131.8MB
+
+## 七、扫描版要点补充
+
+原扫描版 PDF 的要点已补充整理至 `notes-acupuncture-dacheng-scan-essence.md`。该文件作为本模块的补充学习入口，保留课程要点、术语和必要风险边界。
