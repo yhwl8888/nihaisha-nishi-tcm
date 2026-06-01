@@ -158,6 +158,12 @@ python3 scripts/search_screenshots.py 针灸 足三里
 
 感谢 [Datawhale 社区](https://github.com/datawhalechina) 与 [LINUX DO — 中文开发者社区](https://linux.do/) 对开源学习、技术交流和知识共创氛围的长期推动。本项目的整理和分享也希望延续这种开放互助的社区精神，仅供学习交流使用。
 
+欢迎扫码加入微信交流群：
+
+<p align="center">
+  <img src="./docs/wechat_code.jpg" alt="nihaixia 微信交流群二维码" width="260">
+</p>
+
 ## 当前覆盖
 
 - 已整理并接入截图图片：`01.针灸课程`、`03.黄帝内经课程`、`05.神农本草课程`、`07.伤寒论课程`、`09.金匮要略课程`、`11.仲景心法传讲`、`13.人纪之临床案例`、`14.人纪之八纲辨证`、`15.扶阳论坛`、`18.倪师易筋经`、`22.倪海厦天纪`。
