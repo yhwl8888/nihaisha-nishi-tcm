@@ -115,7 +115,7 @@
 
 处理流程：
 
-1. 优先运行 `python scripts/search_screenshots.py <关键词...>` 做多关键词排序；临时查看可用 `rg` 检索 `screenshot-evidence.md`。
+1. 优先运行 `python scripts/search_screenshots.py <自然语言问题或关键词...>` 做跨截图索引排序；需要确认拆词时加 `--show-terms`。
 2. 优先返回 3 到 8 条最相关证据，格式固定：
 
 ```markdown

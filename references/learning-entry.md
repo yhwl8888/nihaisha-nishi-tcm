@@ -119,7 +119,7 @@
 加载顺序：
 
 1. `lesson-map.md`
-2. 按课次检索 `screenshot-evidence.md`
+2. 按课次运行 `python scripts/search_screenshots.py <课次或主题关键词>` 查截图证据
 3. 涉及方剂时打开 `formula-patterns.md`
 
 推荐复习卡格式：
@@ -182,9 +182,9 @@
 
 加载顺序：
 
-1. `screenshot-evidence.md`
-2. 必要时回查 `lesson-map.md` 或 `formula-patterns.md`
-3. 多关键词截图检索优先运行：`python scripts/search_screenshots.py 小柴胡汤 加减`
+1. 多关键词截图检索优先运行：`python scripts/search_screenshots.py <自然语言问题或关键词...>`
+2. 需要确认拆词时加 `--show-terms`
+3. 必要时回查 `lesson-map.md` 或 `formula-patterns.md`
 
 输出格式：
 
