@@ -150,6 +150,12 @@ See [`USE_AND_RISK_NOTICE.md`](./USE_AND_RISK_NOTICE.md) for the full usage, ris
 
 This project is for personal study, material organization, and technical exchange only. It is not for commercial use. Course names, screenshots, transcriptions, organized notes, and related materials involved in this project belong to their respective rights holders. If any content is infringing or unsuitable for public release, please contact the maintainer for removal. See [`USE_AND_RISK_NOTICE.md`](./USE_AND_RISK_NOTICE.md) for details.
 
+## Origin
+
+This project began as a family learning need. My father has recently been studying Ni Haisha's courses and wanted an easier way to search, review, and follow the course structure. I grew up with Chinese herbal medicine and have long had trust in Traditional Chinese Medicine. Since my background is computer science, and I had recently practiced course distillation methods in other domains with good results, I wanted to distill a Ni Haisha learning skill first for my father's study.
+
+I open-sourced it in the hope that it can also help others who are studying Ni Haisha's courses, Chinese medical classics, and classical formula systems. The project is intended for deep study, source lookup, citation checking, and knowledge organization, not for diagnosis or prescription advice. For real health issues, consult a qualified clinician offline and avoid creating health risks by copying formulas, purchasing herbs, or adjusting dosages on your own.
+
 ## Acknowledgements and community
 
 First, thanks to Master Ni Haisha for leaving behind a large body of Chinese medicine course teaching. His courses connect Shang Han Lun, Jingui, acupuncture, materia medica, Huangdi Neijing, Tianji, and clinical pattern thinking into a course system that learners can study, verify, and review by lesson, topic, and question. This project only organizes those materials for learning; its value starts from Master Ni's teaching and transmission.
@@ -159,9 +165,3 @@ Thanks also to Master Ni's students, fans, learners, and volunteers who have spe
 Special thanks to Dr. Liu of Suzhou Yunzhengtang and members of the Qihuang Shengxian Zhihui group for supporting course-text proofreading and classical-source collation. The proofreading PDFs and related classical/formula reference materials used in this update were provided by Dr. Liu. Many terminology corrections in earlier video/audio transcriptions were also made after Dr. Liu pointed out likely transcription errors. This support made the current page-level, source-traceable evidence layer possible.
 
 Thanks to the [Datawhale community](https://github.com/datawhalechina) and [LINUX DO - Chinese Developer Community](https://linux.do/) for their long-running support of open learning, technical exchange, and collaborative knowledge building. This project shares the same open and mutual-help spirit and is for learning and exchange only.
-
-## Origin
-
-This project began as a family learning need. My father has recently been studying Ni Haisha's courses and wanted an easier way to search, review, and follow the course structure. I grew up with Chinese herbal medicine and have long had trust in Traditional Chinese Medicine. Since my background is computer science, and I had recently practiced course distillation methods in other domains with good results, I wanted to distill a Ni Haisha learning skill first for my father's study.
-
-I open-sourced it in the hope that it can also help others who are studying Ni Haisha's courses, Chinese medical classics, and classical formula systems. The project is intended for deep study, source lookup, citation checking, and knowledge organization, not for diagnosis or prescription advice. For real health issues, consult a qualified clinician offline and avoid creating health risks by copying formulas, purchasing herbs, or adjusting dosages on your own.
