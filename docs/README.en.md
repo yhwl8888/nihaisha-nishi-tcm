@@ -21,14 +21,24 @@ A Claude Code / Codex / OpenClaw Skill. Once installed in an agent, it lets you 
 
 The course distillation method used in this project comes from the author's [lineage-skill](https://github.com/JuneYaooo/lineage-skill), which turns dense course materials into traceable, reusable Agent Skills.
 
+## Update Log
+
+### 2026-06-25
+
+- Based on course proofreading materials organized and provided by Qihuang Shengxian Zhihui, this update corrects a set of terminology, formula-name, acupoint-name, and classical-citation errors that came from earlier video/audio transcription.
+- Added page-level PDF evidence under [`references/pdf-evidence/`](../references/pdf-evidence/) so course-text corrections can be traced by source, page, and keyword.
+- Added a classical-source, formula-pattern, and terminology index entry at [`references/ebooks.md`](../references/ebooks.md) for checking classical references mentioned in the courses.
+- Term indexes are split by module, including Shang Han Lun, Jingui, Zhongjing Xinfa, acupuncture, Huangdi Neijing, and Shennong Bencao, so learners can search by topic.
+
 ## What it does
 
 - **Plain-language entry point**: turns everyday descriptions such as "cold with chills", "cold hands and feet", "diarrhea", or "cannot sleep" into the differentiating questions used in the courses.
-- **Multi-course retrieval**: covers Shang Han Lun, Jingui Yaolue, Zhongjing Xinfa, clinical cases, Bagang pattern identification, Fuyang Forum, Yijinjing, the Liang Dong interview, Stanford lecture, Tianji, Huangdi Neijing, Shennong Bencao, acupuncture courses, plus lecture notes, Han-Tang TCM materials, diagnostic logs, ebook indexes, and audio collection indexes.
+- **Multi-course retrieval**: covers Shang Han Lun, Jingui Yaolue, Zhongjing Xinfa, clinical cases, Bagang pattern identification, Fuyang Forum, Yijinjing, the Liang Dong interview, Stanford lecture, Tianji, Huangdi Neijing, Shennong Bencao, acupuncture courses, plus course handouts, study notes, and audio collection mappings.
 - **Six-channel and formula-pattern navigation**: organizes the core Shang Han Lun material by six-channel patterns, symptoms, formulas, and disease-transmission logic.
 - **Acupoint and herb study**: searches acupuncture channels and points, point-combination ideas, and Shennong Bencao course material on herb properties, dosage forms, compatibility, and single-herb clues.
 - **Lesson-by-lesson review**: builds topic maps, keywords, and review questions by course module and lesson.
 - **Screenshot evidence**: includes 2,986 screenshot evidence entries, with compressed WebP images stored in the repo. Search by formula name, acupoint, lesson, pathomechanism, Tianji keyword, or timestamp.
+- **PDF source evidence**: includes 11 text-extractable PDF sources, 3,003 page-level evidence cards, and 6 module term indexes for checking course terminology, classical citations, and formula-pattern clues.
 - **Safety boundary**: defaults to course study and TCM theory organization. It does not provide personal diagnosis, prescriptions, or dosage guidance.
 
 ## Best-fit use cases
@@ -41,6 +51,7 @@ The course distillation method used in this project comes from the author's [lin
 | Study materia medica or Neijing theory | Good | Enters the Shennong Bencao and Huangdi Neijing modules for course-based study notes. |
 | Ask in plain language | Strong | First converts plain symptoms into pattern-identification decision points, then maps them to course terms. |
 | Find board, PPT, or practical screenshots | Good | Use `scripts/search_screenshots.py` to search screenshot indexes across modules. |
+| Check page-level PDF evidence | Good | Use `scripts/search_pdf_evidence.py` to search proofreading PDFs and classical/formula source indexes. |
 | Organize study notes | Good | Can generate Markdown notes that can be appended to `references`. |
 | Make real-world medication decisions | Not suitable | This skill does not provide personal diagnosis, prescriptions, dosage, or self-medication advice. |
 
@@ -71,9 +82,8 @@ The course distillation method used in this project comes from the author's [lin
 | Shennong Bencao notes | [`references/notes-bencao.md`](../references/notes-bencao.md) | Materia medica transcripts, color notes, and single-herb illustrated references. |
 | Shang Han Lun notes | [`references/notes-shanghan.md`](../references/notes-shanghan.md) | Shang Han Lun transcripts, illustrated notes, and study notes. |
 | Jingui Yaolue notes | [`references/notes-jingui.md`](../references/notes-jingui.md) | Jingui organized drafts, handouts, and study notes. |
-| Han-Tang TCM | [`references/hantang.md`](../references/hantang.md) | Han-Tang articles, formula explanations, collected cases, and topic comments. |
-| Diagnostic logs | [`references/diagnostic-logs.md`](../references/diagnostic-logs.md) | Diagnostic logs, case records, and Human Discipline class cases. |
-| Ebook collection | [`references/ebooks.md`](../references/ebooks.md) | Ebook, classical text, secret method, and large collection indexes. |
+| Classical and course PDF source index | [`references/ebooks.md`](../references/ebooks.md) | Course proofreading PDFs, classical citations, formula-pattern references, and terminology checks. |
+| Page-level PDF evidence | [`references/pdf-evidence/index.md`](../references/pdf-evidence/index.md) | PDF source list, page evidence cards, module term indexes, and citation policy. |
 | Audio collection | [`references/audio-collection.md`](../references/audio-collection.md) | MP3/recording collection index and distilled course mappings. |
 
 ## Install
@@ -146,25 +156,47 @@ python3 scripts/search_screenshots.py Tianji ming gong
 python3 scripts/search_screenshots.py acupuncture Zusanli
 ```
 
-> The screenshot index prefers relative paths under `assets/screenshots/...`. Screenshot evidence for the Liang Dong interview and Stanford lecture has not been indexed yet.
+You can also run PDF evidence search directly:
+
+```bash
+python3 scripts/search_pdf_evidence.py 大青龙汤 --module shanghan --limit 3
+python3 scripts/search_pdf_evidence.py 行间 荥穴 --module acupuncture --limit 3
+python3 scripts/search_pdf_evidence.py 旋覆花 代赭石 --module shanghan --limit 3
+```
+
+> The screenshot index prefers relative paths under `assets/screenshots/...`. PDF evidence citations use `pdf-evidence:<doc_id>#p<page>`. The Liang Dong interview and Stanford lecture are currently text-only modules.
 
 ## Safety notice
 
-This project is for studying Ni Haisha's courses, retrieving course material, and organizing Traditional Chinese Medicine theory. It is not intended for medical diagnosis or individualized treatment.
+This project is only for studying Ni Haisha's courses, retrieving course material, and organizing Traditional Chinese Medicine theory. It is not for medical diagnosis, individualized treatment, prescribing formulas, purchasing herbs, dosage decisions, or self-medication. Chinese herbal medicine and classical formulas require careful judgment about pattern identification, dosage, processing, contraindications, constitution, disease stage, and medication interactions. Misuse can create serious health risks.
 
 For topics involving Fuzi-class herbs, Sini Tang-family formulas, Da Chengqi Tang / urgent purging to preserve yin, Didang Tang, Da Xianxiong Tang, cancer/tumors, pregnancy, children, chest pain, altered consciousness, severe dehydration, or other urgent or severe conditions, consult a qualified physician or emergency service immediately.
 
+See [`USE_AND_RISK_NOTICE.md`](./USE_AND_RISK_NOTICE.md) for the full usage, risk, and non-commercial-use boundaries.
+
 ## Copyright and usage notice
 
-This project is for personal study, material organization, and technical exchange only. It is not for commercial use. Course names, screenshots, transcriptions, organized notes, and related materials involved in this project belong to their respective rights holders. If any content is infringing or unsuitable for public release, please contact the maintainer for removal.
+This project is for personal study, material organization, and technical exchange only. It is not for commercial use. Course names, screenshots, transcriptions, organized notes, and related materials involved in this project belong to their respective rights holders. If any content is infringing or unsuitable for public release, please contact the maintainer for removal. See [`USE_AND_RISK_NOTICE.md`](./USE_AND_RISK_NOTICE.md) for details.
 
 ## Acknowledgements and community
+
+First, thanks to Master Ni Haisha for leaving behind a large body of Chinese medicine course teaching. His courses connect Shang Han Lun, Jingui, acupuncture, materia medica, Huangdi Neijing, Tianji, and clinical pattern thinking into a course system that learners can study, verify, and review by lesson, topic, and question. This project only organizes those materials for learning; its value starts from Master Ni's teaching and transmission.
+
+Thanks also to Master Ni's students, fans, learners, and volunteers who have spent years transcribing, proofreading, organizing, and sharing course materials, subtitles, handouts, screenshots, and study notes. Without that long-running community effort, this project could not build further structured distillation, indexing, and correction on top of the course corpus.
+
+Special thanks to Dr. Liu of Suzhou Yunzhengtang and members of the Qihuang Shengxian Zhihui group for supporting course-text proofreading and classical-source collation. The proofreading PDFs and related classical/formula reference materials used in this update were provided by Dr. Liu. Many terminology corrections in earlier video/audio transcriptions were also made after Dr. Liu pointed out likely transcription errors. This support made the current page-level, source-traceable evidence layer possible.
 
 Thanks to the [Datawhale community](https://github.com/datawhalechina) and [LINUX DO - Chinese Developer Community](https://linux.do/) for their long-running support of open learning, technical exchange, and collaborative knowledge building. This project shares the same open and mutual-help spirit and is for learning and exchange only.
 
 ## Current coverage
 
 - Screenshot images have been organized and integrated for: `01.针灸课程`, `03.黄帝内经课程`, `05.神农本草课程`, `07.伤寒论课程`, `09.金匮要略课程`, `11.仲景心法传讲`, `13.人纪之临床案例`, `14.人纪之八纲辨证`, `15.扶阳论坛`, `18.倪师易筋经`, `22.倪海厦天纪`.
-- Text materials have been organized for: `02.针灸大成笔记`, `04.黄帝内经笔记`, `06.神农本草笔记`, `08.伤寒论笔记`, `10.金匮要略笔记`, `12.倪师音频合集`, `16.倪师汉唐中医`, `17.倪师绝版诊疗日志`, `21.倪师电子书合集`.
-- Text has been organized, with screenshot evidence still pending, for: `19.梁冬对话倪师`, `20.倪师斯坦福大学演讲`.
-- Planned expansion: other materials that have not yet been distilled or whose screenshot evidence has not yet been indexed.
+- Text materials have been organized for: `02.针灸大成笔记`, `04.黄帝内经笔记`, `06.神农本草笔记`, `08.伤寒论笔记`, `10.金匮要略笔记`, `12.倪师音频合集`, `19.梁冬对话倪师`, `20.倪师斯坦福大学演讲`.
+- PDF evidence layer: 11 text-extractable PDF sources, 3,003 page-level evidence cards, and 6 module term indexes covering course proofreading for Shang Han Lun, Jingui, Zhongjing Xinfa, acupuncture, Huangdi Neijing, and Shennong Bencao.
+- Ongoing maintenance focuses on source-traceable corrections across course distillation text, course handouts/notes, page-level PDF evidence, and classical formula-source indexes.
+
+## Origin
+
+This project began as a family learning need. My father has recently been studying Ni Haisha's courses and wanted an easier way to search, review, and follow the course structure. I grew up with Chinese herbal medicine and have long had trust in Traditional Chinese Medicine. Since my background is computer science, and I had recently practiced course distillation methods in other domains with good results, I wanted to distill a Ni Haisha learning skill first for my father's study.
+
+I open-sourced it in the hope that it can also help others who are studying Ni Haisha's courses, Chinese medical classics, and classical formula systems. The project is intended for deep study, source lookup, citation checking, and knowledge organization, not for diagnosis or prescription advice. For real health issues, consult a qualified clinician offline and avoid creating health risks by copying formulas, purchasing herbs, or adjusting dosages on your own.

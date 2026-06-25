@@ -181,6 +181,12 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Local one-off correction/audit artifacts
+docs/superpowers/
+references/source-corrections/
+scripts/deep_source_correction.py
+tests/test_deep_source_correction.py
+
 # PyCharm
 #   JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
