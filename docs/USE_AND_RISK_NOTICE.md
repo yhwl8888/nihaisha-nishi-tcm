@@ -16,6 +16,7 @@
 - 医疗诊断、辨病、辨证或治疗决策；
 - 开方、抓药、购药、剂量判断、煎服方法或停换药建议；
 - 针灸、艾灸、放血、刺络等实际操作指导；
+- 停用处方药、替代或推迟急诊、筛查、手术、化疗、抗生素、疫苗或其他由合格医疗人员制定的治疗方案；
 - 替代线下医师、药师或其他合格医疗专业人员。
 
 ## 内容观点与资料属性
@@ -37,6 +38,8 @@
 - 针刺、放血、刺络、艾灸等需要专业训练和现场判断的操作。
 
 真实健康问题请咨询合格医师或及时就医。本项目中的任何课程整理、检索结果、方证比较和古籍引用，都不能作为自我诊断、自行开方或自行操作的依据。
+
+若课程资料中出现“治愈”“无毒”“可替代某治疗”“不需检查”等强表述，应理解为课程观点或历史语境下的材料，不代表本项目确认其医学有效性或安全性。任何已确诊疾病、疑似急症、肿瘤、感染、心脑血管问题、孕产儿科问题或正在服药的情况，都应优先遵循合格医疗专业人员的诊疗意见。
 
 ## 资料来源与版权
 
@@ -77,6 +80,7 @@ This project is not intended for:
 - medical diagnosis, pattern diagnosis, or treatment decisions;
 - prescribing formulas, purchasing herbs, dosage decisions, decoction instructions, or medication changes;
 - practical instruction for acupuncture, moxibustion, bloodletting, or related procedures;
+- stopping prescription medication, or replacing or delaying emergency care, screening, surgery, chemotherapy, antibiotics, vaccines, or other clinician-directed treatment;
 - replacing offline physicians, pharmacists, or other qualified medical professionals.
 
 ## Views and Source Material
@@ -98,6 +102,8 @@ Do not rely on this project for self-management in situations involving:
 - acupuncture, bloodletting, moxibustion, or other procedures requiring professional training and on-site judgment.
 
 For real health problems, consult a qualified clinician or seek timely medical care. Course summaries, search results, formula-pattern comparisons, and classical citations in this project must not be used as the basis for self-diagnosis, self-prescription, or self-performed procedures.
+
+Strong claims in source material such as "cure," "non-toxic," "can replace treatment," or "no testing needed" should be understood as course viewpoints or historical-source context. They do not mean that this project confirms medical effectiveness or safety. For diagnosed disease, possible emergencies, tumors, infections, cardiovascular or neurologic issues, pregnancy or pediatric issues, or any situation involving current medication, follow qualified medical professionals first.
 
 ## Sources and Copyright
 

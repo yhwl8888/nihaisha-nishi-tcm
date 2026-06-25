@@ -6,6 +6,22 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
+
+
+SAFETY_NOTICE = (
+    "安全提示：以下仅为PDF证据定位。涉及剂量、煎服、针灸、放血、外敷、"
+    "急症或毒烈药内容时，不得作为个人医疗建议或自行操作依据。"
+)
+HIGH_RISK_RE = re.compile(
+    r"剂量|煎|服|内服|外敷|处方|抓药|下针|针刺|刺破|放血|火罐|艾灸|灸|"
+    r"附子|乌头|细辛|硫磺|巴豆|甘遂|大戟|芫花|水蛭|虻虫|朱砂|雄黄|铅丹|砒|"
+    r"癌|肿瘤|急救|中毒|毒蛇|破伤风"
+)
+FOLDED_NOTICE = (
+    "[高风险内容已折叠：原摘录涉及可执行医疗、方药、针灸或急重症细节；"
+    "默认只用于定位证据，不展开为操作说明。]"
+)
 
 
 def iter_cards(path: Path):
@@ -38,12 +54,19 @@ def load_term_hits(path: Path, terms: list[str], module: str | None) -> dict[str
     return hits
 
 
+def safe_excerpt(text: str, show_excerpt: bool) -> str:
+    if show_excerpt or not HIGH_RISK_RE.search(text):
+        return text
+    return FOLDED_NOTICE
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Search references/pdf-evidence/evidence-cards.jsonl")
     parser.add_argument("terms", nargs="+", help="Chinese terms to search, e.g. 大青龙汤 荥穴")
     parser.add_argument("--evidence-dir", default="references/pdf-evidence", help="PDF evidence directory")
     parser.add_argument("--limit", type=int, default=10, help="Maximum rows to print")
     parser.add_argument("--module", help="Optional module index, e.g. shanghan, bencao, acupuncture")
+    parser.add_argument("--show-excerpt", action="store_true", help="Print raw source excerpts for manual scholarly verification.")
     args = parser.parse_args()
 
     evidence_dir = Path(args.evidence_dir)
@@ -51,11 +74,12 @@ def main() -> int:
     term_index_path = evidence_dir / "term-index"
     terms = [term.strip() for term in args.terms if term.strip()]
     term_hits = load_term_hits(term_index_path, terms, args.module)
+    print(SAFETY_NOTICE)
 
     if len(terms) == 1 and term_hits.get(terms[0]):
         for hit in term_hits[terms[0]][: args.limit]:
             print(f"{hit['citation']} {hit['source_name']} page {hit['page']}")
-            print(hit.get("snippet", ""))
+            print(safe_excerpt(hit.get("snippet", ""), args.show_excerpt))
             print()
         return 0
 
@@ -74,9 +98,9 @@ def main() -> int:
             for term in terms:
                 for hit in term_hits.get(term, []):
                     if hit.get("card_id") == card.get("card_id") and hit.get("snippet"):
-                        snippets.append(hit["snippet"])
+                        snippets.append(safe_excerpt(hit["snippet"], args.show_excerpt))
                         break
-            print(" / ".join(snippets) if snippets else card["excerpt"])
+            print(" / ".join(snippets) if snippets else safe_excerpt(card["excerpt"], args.show_excerpt))
             print()
             shown += 1
             if shown >= args.limit:

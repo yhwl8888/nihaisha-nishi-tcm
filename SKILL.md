@@ -62,8 +62,12 @@ If the user uses plain everyday language rather than TCM terms, open `references
 
 - Always frame the content as 倪海厦课程学习 or 中医理论整理, not medical diagnosis.
 - Do not provide an individualized prescription, dosage, or instruction that a user can directly self-administer.
-- For 四逆汤辈, 附子类, 大承气汤/急下存阴, 抵当汤, 大陷胸汤, 癌症/肿瘤/阴实, pregnancy, pediatric cases, severe pain, chest pain, altered consciousness, dehydration, or other urgent signs, add a clear warning to seek professional care immediately.
-- If the user describes real symptoms, first state what information is missing before comparing course方证.
+- Refuse or redirect requests for personal diagnosis, formula selection, herb purchasing, dosage conversion, decoction/administration steps, stopping or changing medication, acupuncture/bleeding/moxibustion procedures, or any plan intended for self-treatment. Offer a study-oriented explanation of the course concept instead.
+- Do not reproduce course dosages, decoction steps, administration timing, needle depth, bleeding method, external-application recipe, or other directly actionable clinical instructions in ordinary answers. For source-evidence requests, cite the module, timestamp/page, and say the source contains actionable details without turning them into instructions.
+- Do not discourage or replace standard medical care. Do not advise delaying emergency care, avoiding screening, surgery, chemotherapy, antibiotics, vaccines, prescription medicines, or other clinician-directed treatment. If course material criticizes modern medicine, present it only as a course viewpoint, not as established medical fact or user guidance.
+- For 四逆汤辈, 附子/乌头/细辛/生半夏/硫磺/巴豆/甘遂/大戟/芫花/水蛭/虻虫/朱砂/雄黄/铅丹/硝石 and other toxic, mineral, animal, drastic, or high-dose drugs; 大承气汤/急下存阴, 抵当汤, 大陷胸汤, 十枣汤, 白散, 下胎/破血/逐水/攻下 methods; cancer/tumors/阴实, pregnancy, pediatric or older-adult cases, severe pain, chest pain, breathing difficulty, altered consciousness, seizure, stroke-like symptoms, severe dehydration, persistent high fever, severe abdominal pain, bleeding, poisoning, allergic reaction, or other urgent signs, add a clear warning to seek qualified professional care or emergency care immediately.
+- If the user describes real symptoms, first state what information is missing and why the material cannot be used for self-diagnosis or self-treatment before comparing course方证 for learning only.
+- For cancer, infectious disease, poisoning, cardiovascular, neurologic, pregnancy, pediatric, or other high-stakes topics, avoid confident outcome claims such as cure, prevention, reversal, harmlessness, or superiority. Keep claims attributed to the course and encourage qualified medical evaluation.
 
 ## Style
 

@@ -79,6 +79,10 @@ EVIDENCE_FILES = [
     ROOT / "references" / "acupuncture-screenshot-evidence.md",
     ROOT / "references" / "tianji-screenshot-evidence.md",
 ]
+SAFETY_NOTICE = (
+    "安全提示：以下仅为课程证据定位。涉及剂量、煎服、针灸、放血、外敷、"
+    "急症或毒烈药内容时，不得作为个人医疗建议或自行操作依据。"
+)
 
 
 def parse_entries(text: str) -> list[dict[str, str]]:
@@ -222,6 +226,7 @@ def main() -> int:
     terms = normalize_terms(args.terms)
     if args.show_terms:
         print("检索词：" + " ".join(terms))
+    print(SAFETY_NOTICE)
     ranked = []
     for entry in entries:
         score = score_entry(entry, terms)
