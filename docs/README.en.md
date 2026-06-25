@@ -6,7 +6,7 @@
 
 A Claude Code / Codex / OpenClaw Skill. Once installed in an agent, it lets you use natural language to search Ni Haisha course materials by symptom, formula, acupoint, course module, lesson, or board/PPT screenshot, then returns study-oriented pattern analysis, formula/acupoint/herb comparisons, lesson review plans, and screenshot evidence indexes.
 
-[![GitHub stars](https://img.shields.io/github/stars/JuneYaooo/nihaisha-tcm?style=flat)](https://github.com/JuneYaooo/nihaisha-tcm/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/JuneYaooo/nihaisha-nishi-tcm?style=flat)](https://github.com/JuneYaooo/nihaisha-nishi-tcm/stargazers)
 [![Skill](https://img.shields.io/badge/Agent-Skill-orange.svg)](../SKILL.md)
 [![TCM](https://img.shields.io/badge/TCM-Ni%20Haisha-green.svg)](../references/index.md)
 [![Course](https://img.shields.io/badge/course-multi--module-blue.svg)](../references/index.md)
@@ -50,8 +50,8 @@ The course distillation method used in this project comes from the author's [lin
 | Search acupuncture, channels, and points | Strong | Search by acupoint, channel, point-combination scenario, and practical screenshots. |
 | Study materia medica or Neijing theory | Good | Enters the Shennong Bencao and Huangdi Neijing modules for course-based study notes. |
 | Ask in plain language | Strong | First converts plain symptoms into pattern-identification decision points, then maps them to course terms. |
-| Find board, PPT, or practical screenshots | Good | Use `scripts/search_screenshots.py` to search screenshot indexes across modules. |
-| Check page-level PDF evidence | Good | Use `scripts/search_pdf_evidence.py` to search proofreading PDFs and classical/formula source indexes. |
+| Find board, PPT, or practical screenshots | Good | Search screenshot evidence by course module, keyword, formula, acupoint, lesson, or timestamp. |
+| Check page-level PDF evidence | Good | Trace proofreading PDFs by course module, term, formula, acupoint, or classical-source keyword. |
 | Organize study notes | Good | Can generate Markdown notes that can be appended to `references`. |
 | Make real-world medication decisions | Not suitable | This skill does not provide personal diagnosis, prescriptions, dosage, or self-medication advice. |
 
@@ -86,34 +86,23 @@ The course distillation method used in this project comes from the author's [lin
 | Page-level PDF evidence | [`references/pdf-evidence/index.md`](../references/pdf-evidence/index.md) | PDF source list, page evidence cards, module term indexes, and citation policy. |
 | Audio collection | [`references/audio-collection.md`](../references/audio-collection.md) | MP3/recording collection index and distilled course mappings. |
 
-## Install
+## Current coverage
 
-### Option 1: let your AI install it
+- Screenshot images have been organized and integrated for: `01.针灸课程`, `03.黄帝内经课程`, `05.神农本草课程`, `07.伤寒论课程`, `09.金匮要略课程`, `11.仲景心法传讲`, `13.人纪之临床案例`, `14.人纪之八纲辨证`, `15.扶阳论坛`, `18.倪师易筋经`, `22.倪海厦天纪`.
+- Text materials have been organized for: `02.针灸大成笔记`, `04.黄帝内经笔记`, `06.神农本草笔记`, `08.伤寒论笔记`, `10.金匮要略笔记`, `12.倪师音频合集`, `19.梁冬对话倪师`, `20.倪师斯坦福大学演讲`.
+- PDF evidence layer: 11 text-extractable PDF sources, 3,003 page-level evidence cards, and 6 module term indexes covering course proofreading for Shang Han Lun, Jingui, Zhongjing Xinfa, acupuncture, Huangdi Neijing, and Shennong Bencao.
+- Ongoing maintenance focuses on source-traceable corrections across course distillation text, course handouts/notes, page-level PDF evidence, and classical formula-source indexes.
+
+## Install
 
 Paste this prompt into your AI assistant:
 
 ```text
 Please install the nihaisha skill for me:
-https://github.com/JuneYaooo/nihaisha-tcm
+https://github.com/JuneYaooo/nihaisha-nishi-tcm
 ```
 
 The agent can clone the repository and install the directory into the corresponding skills folder.
-
-### Option 2: manual install
-
-```bash
-git clone git@github.com:JuneYaooo/nihaisha-tcm.git
-cd nihaisha-tcm
-bash install_as_skill.sh --target codex    # Codex
-# or
-bash install_as_skill.sh --target claude   # Claude Code
-```
-
-The script installs the skill into:
-
-- Codex: `~/.codex/skills/nihaisha/`
-- Claude Code: `~/.claude/skills/nihaisha/`
-- OpenClaw: `~/skills/nihaisha/`
 
 After installation, restart the corresponding agent so the skill metadata is reloaded.
 
@@ -147,23 +136,6 @@ Use nihaisha to summarize the acupuncture course material on the Ren/Du channels
 Use nihaisha to find Tianji board evidence related to ming gong and si hua.
 ```
 
-You can also run screenshot search directly:
-
-```bash
-python3 scripts/search_screenshots.py Xiao Chaihu Tang modifications
-python3 scripts/search_screenshots.py shaoyin diarrhea
-python3 scripts/search_screenshots.py Tianji ming gong
-python3 scripts/search_screenshots.py acupuncture Zusanli
-```
-
-You can also run PDF evidence search directly:
-
-```bash
-python3 scripts/search_pdf_evidence.py 大青龙汤 --module shanghan --limit 3
-python3 scripts/search_pdf_evidence.py 行间 荥穴 --module acupuncture --limit 3
-python3 scripts/search_pdf_evidence.py 旋覆花 代赭石 --module shanghan --limit 3
-```
-
 > The screenshot index prefers relative paths under `assets/screenshots/...`. PDF evidence citations use `pdf-evidence:<doc_id>#p<page>`. The Liang Dong interview and Stanford lecture are currently text-only modules.
 
 ## Safety notice
@@ -187,13 +159,6 @@ Thanks also to Master Ni's students, fans, learners, and volunteers who have spe
 Special thanks to Dr. Liu of Suzhou Yunzhengtang and members of the Qihuang Shengxian Zhihui group for supporting course-text proofreading and classical-source collation. The proofreading PDFs and related classical/formula reference materials used in this update were provided by Dr. Liu. Many terminology corrections in earlier video/audio transcriptions were also made after Dr. Liu pointed out likely transcription errors. This support made the current page-level, source-traceable evidence layer possible.
 
 Thanks to the [Datawhale community](https://github.com/datawhalechina) and [LINUX DO - Chinese Developer Community](https://linux.do/) for their long-running support of open learning, technical exchange, and collaborative knowledge building. This project shares the same open and mutual-help spirit and is for learning and exchange only.
-
-## Current coverage
-
-- Screenshot images have been organized and integrated for: `01.针灸课程`, `03.黄帝内经课程`, `05.神农本草课程`, `07.伤寒论课程`, `09.金匮要略课程`, `11.仲景心法传讲`, `13.人纪之临床案例`, `14.人纪之八纲辨证`, `15.扶阳论坛`, `18.倪师易筋经`, `22.倪海厦天纪`.
-- Text materials have been organized for: `02.针灸大成笔记`, `04.黄帝内经笔记`, `06.神农本草笔记`, `08.伤寒论笔记`, `10.金匮要略笔记`, `12.倪师音频合集`, `19.梁冬对话倪师`, `20.倪师斯坦福大学演讲`.
-- PDF evidence layer: 11 text-extractable PDF sources, 3,003 page-level evidence cards, and 6 module term indexes covering course proofreading for Shang Han Lun, Jingui, Zhongjing Xinfa, acupuncture, Huangdi Neijing, and Shennong Bencao.
-- Ongoing maintenance focuses on source-traceable corrections across course distillation text, course handouts/notes, page-level PDF evidence, and classical formula-source indexes.
 
 ## Origin
 
