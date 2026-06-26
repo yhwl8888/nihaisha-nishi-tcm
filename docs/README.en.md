@@ -15,6 +15,8 @@ A Claude Code / Codex / OpenClaw Skill. Once installed in an agent, it lets you 
 
 </div>
 
+> **Note**: This project still has some known issues and is under active iteration. Please check back periodically for updates and install the latest version when available.
+
 ---
 
 ## Course Distillation Method
